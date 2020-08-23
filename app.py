@@ -7,10 +7,6 @@ import pandas as pd
 app = Flask(__name__)
 model = pickle.load(open("flight_rf.pkl", "rb"))
 
-if __name__ != '__main__':
-    gunicorn_logger = logging.getLogger('gunicorn.error')
-    app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)
 
 
 @app.route("/")
